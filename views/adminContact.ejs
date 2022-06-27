@@ -1,0 +1,23 @@
+<body>
+    <%- include('./header.ejs') %>
+    <div class="table">
+        <h1>Administration</h1>
+        <%- include('./adminHeader.ejs') %>
+        <table>
+            <tr>
+                <th>id</th>
+                <th>email</th>
+                <th>message</th>
+            </tr>
+            <% messages.forEach(message => { %>
+            <tr>
+                <td><%= message.id_messages %></td>
+                <td><%= message.email %></td>
+                <td><%= message.message %></td>
+            </tr>
+            <% }) %>
+        </table>
+    </div>
+</body>
+
+</html>

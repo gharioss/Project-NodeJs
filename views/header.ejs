@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AVENTURES GUSTATIVES</title>
+    <link rel="stylesheet" type="text/css" href="/css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css" />
+    <script src="https://kit.fontawesome.com/f00c55aea5.js" crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <header>
+        <nav class="topnav">
+            <ul>
+                <li><a href="/">ACCUEIL</a></li>
+                <li><a href="/recipes">RECETTES</a></li>
+                <li><a href="/about">A PROPOS</a></li>
+                <li><a href="/contact">CONTACT</a></li>
+
+                <% if(cookie_is_logged && cookie_is_logged[0].role == 'Admin') { %>
+                <li><a href="/admin">ADMIN</a></li>
+                <% } %>
+
+                <% if (cookie_is_logged) { %>
+                <li><a href="/user/logout">SE DECONNECTER</a></li>
+                <% } else { %>
+                <li><a href="/user">SE CONNECTER</a></li>
+                <% } %>
+
+            </ul>
+        </nav>
+    </header>
+    <div class="logo-image">
+        <img class="logo" src="/pictures/logo.png" alt="" />
+        <h1>AVENTURES GUSTATIVES</h1>
+    </div>
+
+    <hr class="header-hr">

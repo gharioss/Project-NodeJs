@@ -1,0 +1,31 @@
+<body>
+    <%- include('./header.ejs') %>
+    <div class="table">
+        <h1>Administration</h1>
+        <%- include('./adminHeader.ejs') %>
+        <table>
+            <tr>
+                <th>id</th>
+                <th>titre</th>
+                <th>email</th>
+                <th>comment</th>
+                <th>valider ?</th>
+            </tr>
+            <% comments.forEach(comment => { %>
+            <tr>
+                <td><%= comment.id_comments %></td>
+                <td><%= comment.titre %></td>
+                <td><%= comment.email %></td>
+                <td><%= comment.comment %></td>
+                <!-- <form method="POST" action="php/comments.php"> -->
+                <!-- <input hidden name="id" value="<%= comment.id_comments %>"> -->
+                <td><a href="/comments/valid/<%= comment.id_comments %>"><input name="btnValid" type="submit"
+                            class="btnValid" value="Valider le commentaire"></a></td>
+                <!-- </form> -->
+            </tr>
+            <% }) %>
+        </table>
+    </div>
+</body>
+
+</html>

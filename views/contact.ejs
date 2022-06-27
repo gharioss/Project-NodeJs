@@ -1,0 +1,28 @@
+<body>
+    <%- include('./header.ejs') %>
+    <form method="POST" action="/contact/contact">
+        <div class="contact-input">
+            <div class="text">
+                <h1>Contact</h1>
+            </div>
+            <div class="contact-email">
+                <label for="email">Email</label>
+                <% if(cookie_is_logged) { %>
+                <input name="email" id="email" value="<%= cookie_is_logged[0].email %>">
+                <% }else{ %>
+                <input name="email" id="email">
+                <% } %>
+                <% console.log(cookie_is_logged); %>
+            </div>
+            <div class="contact-message">
+                <label for="message">Message</label>
+                <textarea name="message" id="message" rows="10"></textarea>
+            </div>
+            <div class="field button">
+                <input name="sendMsg" type="submit" value="Envoyer">
+            </div>
+        </div>
+    </form>
+</body>
+
+</html>

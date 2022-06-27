@@ -1,0 +1,37 @@
+<body>
+    <%- include('./header.ejs') %>
+    <div class="table">
+        <h1>Administration</h1>
+        <%- include('./adminHeader.ejs') %>
+        <table>
+            <tr>
+                <th>id</th>
+                <th>Titre</th>
+                <th>Content</th>
+                <th>Catégorie</th>
+                <th>Actions</th>
+            </tr>
+            <% recipes.forEach(recipe => { %>
+            <tr>
+                <td><%= recipe.id_recette %></td>
+                <td><%= recipe.titre %></td>
+                <td><%= recipe.content %></td>
+                <td><%= recipe.category %></td>
+                <td>
+                    <a href="admin/edit/id=<%= recipe.id_recette %>">
+                        <input type="submit" class="btnUpdate" value="Modifier">
+                    </a>
+                    <!-- <form action="admin/delete" method="POST">
+                        <input hidden name="id" value="<%= recipe['id_recette'] %>"> -->
+                    <a href="/admin/delete/<%= recipe.id_recette %>"><input name="btnDelete" type="submit"
+                            class="btnDelete" value="Supprimer"
+                            onclick="return window.confirm('Êtes vous sûr de vouloir supprimer ce post ?')"></a>
+                    </form>
+                </td>
+            </tr>
+            <% }); %>
+        </table>
+    </div>
+</body>
+
+</html>

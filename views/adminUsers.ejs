@@ -1,0 +1,43 @@
+<body>
+    <%- include('./header.ejs') %>
+    <div class="table">
+        <h1>Administration</h1>
+        <%- include('./adminHeader.ejs') %>
+        <table>
+            <tr>
+                <th>id</th>
+                <th>Prénom</th>
+                <th>Nom</th>
+                <th>Email</th>
+                <th>Rôle</th>
+                <th>Modifier role ?</th>
+            </tr>
+            <% users.forEach(user => { %>
+            <tr>
+                <% if (user.role == "user") { %>
+                <form method="POST" action="edit/<%= user.id_users %>">
+                    <td><%= user.id_users %></td>
+                    <td><input name="fname" value="<%= user.fname %>"></td>
+                    <td><input name="lname" value="<%= user.lname %>"></td>
+                    <td><input name="email" value="<%= user.email %>"></td>
+                    <td><select name="role">
+                            <option value="user" selected><%= user.role %></option>
+                            <option value="Admin">Admin</option>
+                        </select></td>
+                    <input hidden name="id" value="<%= user.id_users %>">
+                    <td><input type="submit" name="userUpdate" class="btnUpdate" value="Modifier"></td>
+                </form>
+                <% } else { %>
+                <td><%= user.id_users %></td>
+                <td><%= user.fname %></td>
+                <td><%= user.lname %></td>
+                <td><%= user.email %></td>
+                <td><%= user.role %></td>
+                <% } %>
+            </tr>
+            <% }) %>
+        </table>
+    </div>
+</body>
+
+</html>

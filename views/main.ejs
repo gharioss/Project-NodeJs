@@ -1,0 +1,107 @@
+<body>
+    <%- include('./header.ejs') %>
+
+    <div class="intro">
+        <section class="section">
+            <h2>Bienvenue sur Aventures Gustatives !</h2>
+            <p> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Atque odit laborum perferendis expedita veniam
+                sit, sint similique minima quibusdam. Beatae, iure! Quidem magni doloremque omnis illum fugit delectus
+                numquam inventore.
+                Veniam debitis nostrum ut laudantium fugiat asperiores perferendis eaque quisquam recusandae animi
+                accusamus nulla doloribus delectus, dignissimos nam! Quis sit distinctio nulla, accusantium repellat
+                illo fugiat ipsum veniam magnam at!
+                Reiciendis sapiente beatae sunt ipsa deleniti ad praesentium porro! Consectetur inventore exercitationem
+                aliquam ipsum quidem illo assumenda illum, odit eos deserunt necessitatibus nam, dolor veniam facilis,
+                doloribus corporis! Placeat, repellendus?</p>
+        </section>
+    </div>
+
+    <div class="contains">
+        <div class="next-card">
+            <p>Bonjour</p>
+            <hr class="small">
+            <p class="elements">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quis eum in amet, modi odit
+                totam dolor, libero eveniet officia officiis deserunt fuga natus ipsam ipsa.</p>
+            <hr>
+            <div class="card-icons">
+                <ul>
+                    <li><a href="#"><i class="fa-brands fa-instagram"></i></a></li>
+                    <li><a href="#"><i class="fa-brands fa-facebook"></i></a></li>
+                    <li><a href="#"><i class="fa-brands fa-pinterest"></i></a></li>
+                    <li><a href="#"><i class="fa-brands fa-youtube"></i></a></li>
+                </ul>
+            </div>
+            <hr>
+            <h1>Elu meilleur blog culinaire</h1>
+            <hr>
+            <% if(last_recipe) { %>>
+            <p>Ma dernière recette</p>
+            <hr class="small">
+
+            <% last_recipe.forEach(recipe => { %>
+            <div class="card2">
+                <div class="card-image2">
+                    <img src="<%= recipe.img %>" alt="Orange" />
+                </div>
+                <div class="card-body2">
+                    <div class="card-title2">
+                        <h3><%= recipe.titre %></h3>
+                    </div>
+                    <div class="field button">
+                        <a href="details/<%= recipe.id_recette %>">
+                            <input type="submit" value="Voir la recette">
+                        </a>
+                    </div>
+
+                </div>
+            </div>
+            <% }) %>
+            <% } %>
+        </div>
+
+        <div class="recipes">
+            <% recipes.forEach(recipe => { %>
+            <div class="card">
+                <div class="card-image">
+                    <img src="<%= recipe['img'] %>" alt="Orange" />
+                </div>
+                <div class="card-body">
+                    <div class="card-ids">
+                        <i class="fa-solid fa-user"></i>
+                        <p><%= recipe['fname'] + " " + recipe['lname'] %> • </p>
+                        <!-- <%= recipe['date'] %> • </p> -->
+                        <p><%= recipe['category'] %></p>
+                    </div>
+                    <div class="card-title">
+                        <h3><%= recipe['titre'] %></h3>
+                    </div>
+                    <div class="card-excerpt">
+                        <p><%= recipe['content'] %></p>
+                    </div>
+                    <div class="field button">
+                        <a href="details/<%= recipe.id_recette %>">
+                            <input type="submit" value="Voir plus">
+                        </a>
+                    </div>
+                    <hr>
+                    <div class="comments">
+                        <a href="details/<%= recipe.id_recette %>#commentaires">
+                            <i class="fa-solid fa-message"></i>
+                            <p class="number"><%= recipe['countComment'] + " " + "Commentaires" %></p>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <% }); %>
+
+        </div>
+    </div>
+
+
+    </div>
+
+
+
+</body>
+
+</html>

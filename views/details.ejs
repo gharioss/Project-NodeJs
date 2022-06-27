@@ -1,0 +1,56 @@
+<body>
+    <%- include('./header.ejs') %>
+
+    <div class="all-detail">
+        <% recipes.forEach(recipe => { %>
+        <div class="carte">
+            <div class="carte-ids">
+                <i class="fa-solid fa-user"></i>
+                <p><%= recipe.fname %> <%= recipe.lname %> • </p>
+                <!-- <p><?php echo $i['date']; ?> • </p> -->
+                <p><%= recipe.category %></p>
+            </div>
+            <div class="carte-title">
+                <h3><%= recipe.titre %></h3>
+            </div>
+            <div class="carte-image">
+                <img src="/<%= recipe.img %>" alt="Orange" />
+            </div>
+            <div class="carte-excerpt">
+                <p><%= recipe.content %></p>
+            </div>
+            <hr class="small2">
+            <% comments.forEach(comment => { %>
+            <div id="commentaires" class="carte-comment">
+                <p class="italic">Rédigé par <%= comment.fname %> <%= comment.lname %></p>
+                <p><%= comment.comment %></p>
+            </div>
+            <% }) %>
+        </div>
+        <% if (cookie_is_logged) { %>
+        <form action="/comments/addComment" method="POST">
+            <div class="details-input">
+                <div class="text">
+                    <h1>Envoyer un commentaire</h1>
+                </div>
+                <div class="details-message">
+                    <input hidden name="id" value="<%= recipe.id_recette %>">
+                    <label for="comment">Commentaire</label>
+                    <textarea name="comment" id="comment" rows="10" require></textarea>
+                </div>
+                <div class="field button">
+                    <input name="sendComment" type="submit" value="Envoyer un commentaire">
+                </div>
+        </form>
+        <% } %>
+        <% }) %>
+
+        <h1>Recettes récentes</h1>
+
+    </div>
+
+
+
+</body>
+
+</html>

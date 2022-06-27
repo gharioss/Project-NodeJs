@@ -1,0 +1,48 @@
+<body>
+    <%- include('./header.ejs') %>
+
+    <div class="contains">
+        <div class="recipes">
+            <% recipes.forEach(recipe => { %>
+            <div class="card">
+                <div class="card-image">
+                    <img src="<%= recipe['img'] %>" alt="Orange" />
+                </div>
+                <div class="card-body">
+                    <div class="card-ids">
+                        <i class="fa-solid fa-user"></i>
+                        <p><%= recipe['fname'] + " " + recipe['lname'] %> • </p>
+                        <p><%= recipe['date'] %> • </p>
+                        <p><%= recipe['category'] %></p>
+                    </div>
+                    <div class="card-title">
+                        <h3><%= recipe['titre'] %></h3>
+                    </div>
+                    <div class="card-excerpt">
+                        <p><%= recipe['content'] %></p>
+                    </div>
+                    <div class="field button">
+                        <a href="#">
+                            <input type="submit" value="Voir plus">
+                        </a>
+                    </div>
+                    <hr>
+                    <div class="comments">
+                        <a href="#">
+                            <i class="fa-solid fa-message"></i>
+                            <p class="number"><%= recipe['countComment'] + " " + "Commentaires" %></p>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <% }); %>
+
+        </div>
+    </div>
+
+
+
+
+</body>
+
+</html>
