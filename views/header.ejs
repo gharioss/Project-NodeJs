@@ -25,7 +25,9 @@
                 <% } %>
 
                 <% if (cookie_is_logged) { %>
-                <li><a href="/user/logout">SE DECONNECTER</a></li>
+                <li><a href="/user/logout"
+                        onclick="return window.confirm('Êtes vous sûr de vouloir vous déconnecter ?')">SE
+                        DECONNECTER</a></li>
                 <% } else { %>
                 <li><a href="/user">SE CONNECTER</a></li>
                 <% } %>
@@ -34,7 +36,7 @@
         </nav>
     </header>
     <div class="logo-image">
-        <img class="logo" src="/pictures/logo.png" alt="" />
+        <img class="logo" src="/pictures/logo.png" alt="" draggable="false" />
         <h1>AVENTURES GUSTATIVES</h1>
     </div>
 

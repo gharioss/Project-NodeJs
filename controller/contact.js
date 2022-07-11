@@ -6,12 +6,18 @@ router.get("/", async (req, res) => {
   res.render("contact");
 });
 
-router.post("/contact", (req, res) => {
-  const values = [req.body.email, req.body.message];
+router.post("/contact", async (req, res) => {
+  console.log(req.body);
+  const email = req.body.email;
+  const message = req.body.message;
 
-  insertMessage(values);
+  const values = [email, message];
 
-  res.redirect("/contact");
+  const insert_message = await insertMessage(values);
+
+  console.log(insert_message);
+
+  res.send({ message: insert_message });
 });
 
 router.get("/messages", async (req, res) => {

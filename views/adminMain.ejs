@@ -5,6 +5,7 @@
         <%- include('./adminHeader.ejs') %>
         <table>
             <tr>
+                <th>Détails</th>
                 <th>id</th>
                 <th>Titre</th>
                 <th>Content</th>
@@ -13,6 +14,8 @@
             </tr>
             <% recipes.forEach(recipe => { %>
             <tr>
+                <td><a href="/details/<%= recipe.id_recette %>"><input name="btnDelete" type="submit" class="btnDetails"
+                            value="Détails"></a></td>
                 <td><%= recipe.id_recette %></td>
                 <td><%= recipe.titre %></td>
                 <td><%= recipe.content %></td>
@@ -26,7 +29,7 @@
                     <a href="/admin/delete/<%= recipe.id_recette %>"><input name="btnDelete" type="submit"
                             class="btnDelete" value="Supprimer"
                             onclick="return window.confirm('Êtes vous sûr de vouloir supprimer ce post ?')"></a>
-                    </form>
+                    <!-- </form> -->
                 </td>
             </tr>
             <% }); %>

@@ -22,13 +22,13 @@
                         <p><%= recipe['content'] %></p>
                     </div>
                     <div class="field button">
-                        <a href="#">
+                        <a href="details/<%= recipe.id_recette %>">
                             <input type="submit" value="Voir plus">
                         </a>
                     </div>
                     <hr>
                     <div class="comments">
-                        <a href="#">
+                        <a href="details/<%= recipe.id_recette %>#commentaires">
                             <i class="fa-solid fa-message"></i>
                             <p class="number"><%= recipe['countComment'] + " " + "Commentaires" %></p>
                         </a>

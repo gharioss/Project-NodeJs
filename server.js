@@ -58,4 +58,4 @@ app.use("/admin", adminRouter);
 
 app.use("/comments", commentsRouter);
 
-app.listen(3000);
+app.listen(process.env.PORT || 8080);

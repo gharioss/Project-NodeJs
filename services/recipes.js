@@ -39,6 +39,19 @@ export const getLastRecipeFromUser = (id) => {
   });
 };
 
+export const insertRecipe = (values) => {
+  return new Promise((resolve, reject) => {
+    db.connect((err) => {
+      const sql =
+        "INSERT INTO recettes (titre, content, img, id_category, date, id_users) VALUES (?,?,?,?,now(),?)";
+      db.query(sql, values, (err, result) => {
+        if (err) reject(err);
+        resolve(result);
+      });
+    });
+  });
+};
+
 export const deleteRecipes = (id) => {
   db.connect((err) => {
     const sql = `DELETE FROM recettes WHERE id_recette = ?`;

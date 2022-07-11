@@ -256,6 +256,8 @@ div .card-icons ul i {
     background: #84947B;
     color: #fff;
     cursor: pointer;
+    border-radius: 5px;
+    padding: 10px;
 }
 
 .comments {
@@ -480,14 +482,25 @@ tr:hover {
 
 .btnUpdate,
 .btnDelete,
-.btnValid {
+.btnValid,
+.btnDetails {
     margin: 5px;
     border: none;
     color: white;
-    padding: 15px 20px;
+    padding: 10px 15px;
     text-align: center;
     text-decoration: none;
     cursor: pointer;
+    border-radius: 5px;
+    transition: all 0.3s ease-out;
+}
+
+.btnUpdate:hover,
+.btnDelete:hover,
+.btnValid:hover,
+.btnDetails:hover {
+    transform: scale(1.1);
+    transition: all 0.3s ease-out;
 }
 
 .btnUpdate,
@@ -497,6 +510,10 @@ tr:hover {
 
 .btnDelete {
     background: #DC143C;
+}
+
+.btnDetails {
+    background: #7393B3;
 }
 
 .addRecipe {
