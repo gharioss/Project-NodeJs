@@ -4,11 +4,7 @@
     <div class="addRecipe">
         <h1>Ajouter une recette</h1>
     </div>
-    <div class="field button">
-        <a href="admin.php">
-            <input type="submit" value="retour">
-        </a>
-    </div>
+    <%- include('./adminHeader.ejs') %>
     <form method="POST" action="/add" enctype='multipart/form-data'>
         <div class="contact-input">
             <div class="add-titre">
