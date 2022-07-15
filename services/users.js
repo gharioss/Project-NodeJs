@@ -20,6 +20,16 @@ export const login = (values) => {
   });
 };
 
+export const insertUser = (userValue) => {
+  db.connect((err) => {
+    const sql = `INSERT INTO users (fname, lname, email, password) VALUES (?,?,?,?)`;
+    db.query(sql, userValue, (err, result) => {
+      if (err) throw err;
+      console.log(result);
+    });
+  });
+};
+
 export const getUsers = () => {
   return new Promise((resolve, reject) => {
     db.connect((err) => {

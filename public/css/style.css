@@ -9,6 +9,10 @@
 
 /* NAVBAR */
 
+.media-nav {
+    display: none;
+}
+
 .topnav {
     top: 0;
     position: absolute;
@@ -587,4 +591,62 @@ tr:hover {
     flex-direction: column;
     width: 650px;
     margin-top: 15px;
+}
+
+@media (max-width: 1024px) {
+    .next-card {
+        display: none;
+    }
+}
+
+@media (max-width: 767px) {
+    .topnav {
+        display: none;
+    }
+
+    .media-nav {
+        display: initial;
+    }
+
+    .card {
+        width: 450px;
+        height: 550px;
+    }
+
+    .card-excerpt {
+        display: none;
+    }
+
+    .card-image {
+        height: 350px;
+    }
+
+    .field {
+        display: none;
+    }
+
+    .card-ids {
+        display: none;
+    }
+}
+
+@media (max-width: 480px) {
+    .card {
+        width: 370px;
+        height: 550px;
+    }
+
+    .card-excerpt {
+        display: none;
+    }
+
+    .card-image {
+        height: 350px;
+    }
+
+
+
+    .intro {
+        display: none;
+    }
 }

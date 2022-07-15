@@ -34,6 +34,27 @@
 
             </ul>
         </nav>
+        <nav class="topnav media-nav">
+            <ul>
+                <li><a href="/"><i class="fa-solid fa-house"></i></a></li>
+                <li><a href="/recipes"><i class="fa-solid fa-book-open"></i></a></li>
+                <li><a href="/about"><i class="fa-solid fa-info"></i></a></li>
+                <li><a href="/contact"><i class="fa-solid fa-phone"></i></a></li>
+
+                <% if(cookie_is_logged && cookie_is_logged[0].role == 'Admin') { %>
+                <li><a href="/admin"><i class="fa-solid fa-lock-keyhole"></i></a></li>
+                <% } %>
+
+                <% if (cookie_is_logged) { %>
+                <li><a href="/user/logout"
+                        onclick="return window.confirm('Êtes vous sûr de vouloir vous déconnecter ?')"><i
+                            class="fa-solid fa-arrow-right-from-bracket"></i></a></li>
+                <% } else { %>
+                <li><a href="/user"><i class="fa-solid fa-user-large"></i></a></li>
+                <% } %>
+
+            </ul>
+        </nav>
     </header>
     <div class="logo-image">
         <img class="logo" src="/pictures/logo.png" alt="" draggable="false" />

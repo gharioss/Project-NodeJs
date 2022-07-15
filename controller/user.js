@@ -1,5 +1,9 @@
+import bcrypt from "bcryptjs";
 import express from "express";
-import { getUsers, login, updateUser } from "../services/users.js";
+import { getUsers, insertUser, login, updateUser } from "../services/users.js";
+
+const saltRounds = 10;
+
 const router = express.Router();
 
 router.get("/", async (req, res) => {
@@ -39,6 +43,23 @@ router.post("/edit/:id", async (req, res) => {
   const update = updateUser(values);
 
   res.redirect("/user/getAll");
+});
+
+router.post("/register_form", async (req, res) => {
+  const values = [req.body.fname, req.body.lname, req.body.email];
+  const password = req.body.password;
+
+  bcrypt.hash(password, saltRounds, async (err, hash) => {
+    values.push(hash);
+
+    insertUser(values);
+
+    res.redirect("/");
+  });
+
+  // const update = updateUser(values);
+
+  // res.redirect("/user/getAll");
 });
 
 router.get("/logout", (req, res) => {
